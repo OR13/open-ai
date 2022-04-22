@@ -1,0 +1,33 @@
+{
+  "name": "open-ai",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js --license licenses.txt",
+    "test": "source .env && OPENAI_API_KEY=$OPENAI_API_KEY jest",
+    "prerelease": "npm run build",
+    "release": "npm version patch && git add ./package.json",
+    "postrelease": "git push --tags",
+    "shove": "npm run build; git add -A; git commit -m ':rocket:'; git push origin main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OR13/open-ai.git"
+  },
+  "keywords": [],
+  "author": "Orie Steele",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/OR13/open-ai/issues"
+  },
+  "homepage": "https://github.com/OR13/open-ai#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "openai": "^2.0.5"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.4",
+    "jest": "^27.5.1"
+  }
+}

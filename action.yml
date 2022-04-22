@@ -1,16 +1,19 @@
 name: "Open AI"
 description: "Access the openai.com"
-author: "Orie Steele"
 inputs:
   api-key:
-    description: "OpenAI api key."
-    required: true
+    description: |
+      Open AI api key.
+
   summarize:
-    description: "Input text to summarize"
+    description: |
+      Text to summarize
 
 outputs:
+  json:
+    description: "The output in as json."
   text:
-    description: "Output as text"
+    description: "The output in as text."
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: "node16"
+  main: "dist/index.js"
