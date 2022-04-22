@@ -5,8 +5,8 @@ inputs:
   api-key:
     description: "OpenAI api key."
     required: true
-  text:
-    description: "Input text"
+  summarize:
+    description: "Input text to summarize"
 
 outputs:
   text:

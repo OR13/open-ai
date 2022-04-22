@@ -4,7 +4,7 @@ import openai
 
 def main():
     openai.api_key = os.environ["INPUT_API-KEY"]
-    input_text = os.environ["INPUT_TEXT"]
+    input_text = os.environ["INPUT_SUMMARIZE"]
 
     response = openai.Completion.create(
         engine="text-davinci-002",
