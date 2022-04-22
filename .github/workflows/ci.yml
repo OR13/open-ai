@@ -1,0 +1,17 @@
+name: Integration Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Self test
+        id: selftest
+        uses: or13/open-ai@main
+        with:
+          api-key: "123-456"
+          text: "hello world"
+
+      - name: Check outputs and modified files
+        run: |
+          test "${{ steps.selftest.outputs.warnings }}" == "1"

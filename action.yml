@@ -1,0 +1,16 @@
+name: "Open AI"
+description: "Access the openai.com"
+author: "Orie Steele"
+inputs:
+  api-key:
+    description: "OpenAI api key."
+    required: true
+  text:
+    description: "Input text"
+
+outputs:
+  text:
+    description: "Output as text"
+runs:
+  using: "docker"
+  image: "Dockerfile"
