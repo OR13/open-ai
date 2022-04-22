@@ -1,0 +1,22 @@
+name: Demo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    name: Summarize Text
+    steps:
+      - name: Summarize Text
+        uses: or13/open-ai@v0.0.1
+        id: summarize
+        with:
+          api-key: ${{ secrets.OPENAI_API_KEY }}
+          summarize: "hello world"
+
+      - name: Review the Summary
+        run: |-
+          echo "${{ steps.summarize.outputs.text }}"
