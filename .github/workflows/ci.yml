@@ -41,4 +41,4 @@ jobs:
 
       - name: Review the results
         run: |-
-          echo '${{ steps.summarize.outputs.text }}'
+          echo "${{ steps.summarize.outputs.text }}"
