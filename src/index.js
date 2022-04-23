@@ -1,5 +1,5 @@
-const getSummary = require("./getSummary");
+const createCompletion = require("./createCompletion");
 
 module.exports = {
-  getSummary,
+  createCompletion,
 };

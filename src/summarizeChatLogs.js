@@ -1,19 +1,24 @@
 const { Configuration, OpenAIApi } = require("openai");
 
-const getSummary = async (options = {}) => {
+const summarizeChatLogs = async (options = {}) => {
   const configuration = new Configuration({
     apiKey: options.apiKey,
   });
   const openai = new OpenAIApi(configuration);
   const response = await openai.createCompletion("text-davinci-002", {
-    prompt: options.summarize + "\n\nTl;dr: ",
-    temperature: 0.7,
-    max_tokens: 60,
+    prompt: `
+Summarize these chat logs in 1 sentence:
+  
+${options.logs}
+`,
+    temperature: 0,
+    max_tokens: 64,
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
   });
+
   return response.data;
 };
 
-module.exports = getSummary;
+module.exports = summarizeChatLogs;
