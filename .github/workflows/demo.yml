@@ -11,10 +11,16 @@ jobs:
     name: Create Analogy
     steps:
       - name: get completion
-        uses: or13/open-ai@v0.0.2
+        uses: or13/open-ai@v0.0.3
         id: completion
         with:
           api-key: ${{ secrets.OPENAI_API_KEY }}
+          engine: "text-davinci-002"
+          temperature: 0.5
+          max_tokens: 60
+          top_p: 1.0
+          frequency_penalty: 0.0
+          presence_penalty: 0.0
           prompt: |-
             Create an analogy for this phrase:
 
