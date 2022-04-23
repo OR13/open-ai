@@ -23,7 +23,7 @@ inputs:
       What sampling temperature to use. Higher values means the model will take more risks. 
       Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer.
       Learn more: https://beta.openai.com/docs/api-reference/completions/create#completions/temperature
-    default: 0
+    default: 0.0
 
   max_tokens:
     description: |
