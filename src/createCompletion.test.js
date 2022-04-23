@@ -10,12 +10,16 @@ describe("createCompletion", () => {
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
-      prompt: `Write a recipe based on these ingredients and instructions:
-    Frito Pie
-    Ingredients: Fritos Chili Shredded cheddar cheese Sweet white or red onions, diced small Sour cream
-    Instructions:`,
+      prompt: `
+Write a recipe based on these ingredients and instructions:
+
+Frito Pie
+Ingredients: Fritos Chili Shredded cheddar cheese Sweet white or red onions, diced small Sour cream
+
+Instructions:
+    `,
     });
-    // console.log(JSON.stringify(response, null, 2));
+    console.log(JSON.stringify(response, null, 2));
     expect(response.choices[0].finish_reason).toBe("stop");
   });
 });
