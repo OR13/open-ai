@@ -9254,9 +9254,13 @@ const getOpts = () => {
 async function run() {
   try {
     const opts = getOpts();
-    const response = await lib.createCompletion(opts);
-    core.setOutput("json", JSON.stringify(response));
-    core.setOutput("text", response.choices[0].text);
+    // const response = await lib.createCompletion(opts);
+
+    const { apiKey, ...rest } = opts;
+
+    console.log(rest);
+    // core.setOutput("json", JSON.stringify(response));
+    // core.setOutput("text", response.choices[0].text);
   } catch (error) {
     core.setFailed(error.message);
   }

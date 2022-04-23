@@ -10,7 +10,7 @@ inputs:
       Engines describe and provide access to these models. 
       You can also customize our base models for your specific use case with fine-tuning.
       See: https://beta.openai.com/docs/engines/overview
-    default: "text-davinci-002"
+    required: true
 
   prompt:
     description: |
@@ -23,7 +23,7 @@ inputs:
       What sampling temperature to use. Higher values means the model will take more risks. 
       Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer.
       Learn more: https://beta.openai.com/docs/api-reference/completions/create#completions/temperature
-    default: 0.0
+    required: true
 
   max_tokens:
     description: |
@@ -31,7 +31,7 @@ inputs:
       The token count of your prompt plus max_tokens cannot exceed the model's context length. 
       Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
       Learn more: https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens
-    default: 60
+    required: true
 
   top_p:
     description: |
@@ -40,7 +40,7 @@ inputs:
       So 0.1 means only the tokens comprising the top 10% probability mass are considered.
       We generally recommend altering this or temperature but not both.
       Learn more: https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p
-    default: 1.0
+    required: true
 
   frequency_penalty:
     description: |
@@ -48,7 +48,7 @@ inputs:
       Positive values penalize new tokens based on their existing frequency in the text so far, 
       decreasing the model's likelihood to repeat the same line verbatim.
       Learn more: https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty
-    default: 0.0
+    required: true
 
   presence_penalty:
     description: |
@@ -56,7 +56,7 @@ inputs:
       Positive values penalize new tokens based on whether they appear in the text so far, 
       increasing the model's likelihood to talk about new topics.
       Learn more: https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty
-    default: 0.0
+    required: true
 
 outputs:
   json:
