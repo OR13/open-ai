@@ -9236,13 +9236,12 @@ const getOpts = () => {
   return {
     apiKey: core.getInput("api-key"),
     engine: core.getInput("engine"),
-    temperature: core.getInput("temperature"),
-    max_tokens: core.getInput("max_tokens"),
-    top_p: core.getInput("top_p"),
-    frequency_penalty: core.getInput("frequency_penalty"),
-    presence_penalty: core.getInput("presence_penalty"),
-
-    prompt: core.getInput("prompt"),
+    temperature: parseFloat(core.getInput("temperature")),
+    max_tokens: parseInt(core.getInput("max_tokens"), 10),
+    top_p: parseFloat(core.getInput("top_p")),
+    frequency_penalty: parseFloat(core.getInput("frequency_penalty")),
+    presence_penalty: parseFloat(core.getInput("presence_penalty")),
+    prompt: core.getMultilineInput("prompt"),
   };
 };
 
