@@ -1,5 +1,5 @@
 name: "Open AI"
-description: "Access openai.com"
+description: "Access GPT-3 completions from openai.com"
 inputs:
   api-key:
     description: |
