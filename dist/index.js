@@ -9011,28 +9011,38 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 5074:
+/***/ 1468:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const { Configuration, OpenAIApi } = __nccwpck_require__(9211);
 
-const getSummary = async (options = {}) => {
+const createCompletion = async (options = {}) => {
+  const {
+    apiKey,
+    engine,
+    prompt,
+    temperature,
+    max_tokens,
+    top_p,
+    frequency_penalty,
+    presence_penalty,
+  } = options;
   const configuration = new Configuration({
-    apiKey: options.apiKey,
+    apiKey,
   });
   const openai = new OpenAIApi(configuration);
-  const response = await openai.createCompletion("text-davinci-002", {
-    prompt: options.summarize + "\n\nTl;dr",
-    temperature: 0.7,
-    max_tokens: 60,
-    top_p: 1.0,
-    frequency_penalty: 0.0,
-    presence_penalty: 0.0,
+  const response = await openai.createCompletion(engine, {
+    prompt,
+    temperature,
+    max_tokens,
+    top_p,
+    frequency_penalty,
+    presence_penalty,
   });
   return response.data;
 };
 
-module.exports = getSummary;
+module.exports = createCompletion;
 
 
 /***/ }),
@@ -9040,10 +9050,10 @@ module.exports = getSummary;
 /***/ 4351:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const getSummary = __nccwpck_require__(5074);
+const createCompletion = __nccwpck_require__(1468);
 
 module.exports = {
-  getSummary,
+  createCompletion,
 };
 
 
@@ -9225,14 +9235,20 @@ const lib = __nccwpck_require__(4351);
 const getOpts = () => {
   return {
     apiKey: core.getInput("api-key"),
-    summarize: core.getInput("summarize"),
+    engine: core.getInput("engine"),
+    prompt: core.getInput("prompt"),
+    temperature: core.getInput("temperature"),
+    max_tokens: core.getInput("max_tokens"),
+    top_p: core.getInput("top_p"),
+    frequency_penalty: core.getInput("frequency_penalty"),
+    presence_penalty: core.getInput("presence_penalty"),
   };
 };
 
 async function run() {
   try {
     const opts = getOpts();
-    const response = await lib.getSummary(opts);
+    const response = await lib.createCompletion(opts);
     core.setOutput("json", JSON.stringify(response));
     core.setOutput("text", response.choices[0].text);
   } catch (error) {
