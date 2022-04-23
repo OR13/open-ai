@@ -37,7 +37,7 @@ jobs:
         id: completion
         with:
           api-key: ${{ secrets.OPENAI_API_KEY }}
-          engine: "text-davinci-002",
+          engine: "text-davinci-002"
           temperature: 0.3
           max_tokens: 120
           top_p: 1
