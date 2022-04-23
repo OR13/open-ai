@@ -6,13 +6,13 @@ const getOpts = () => {
   return {
     apiKey: core.getInput("api-key"),
     engine: core.getInput("engine"),
-    temperature: core.getInput("temperature"),
+    // temperature: core.getInput("temperature"),
     // max_tokens: core.getInput("max_tokens"),
     // top_p: core.getInput("top_p"),
     // frequency_penalty: core.getInput("frequency_penalty"),
     // presence_penalty: core.getInput("presence_penalty"),
 
-    // temperature: 0.3,
+    temperature: 0.3,
     max_tokens: 120,
     top_p: 1,
     frequency_penalty: 0,
